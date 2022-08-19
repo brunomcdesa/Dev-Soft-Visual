@@ -1,95 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Dev_Soft_Visual {
+namespace Aula3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //  Console.WriteLine("====== ORIENTACAO A OBJETOS ======= \n");
+            //   ContaCorrente conta1 = new ContaCorrente();
+            //  conta1.nomeTitular = "Bruno";
+            //   conta1.numAgencia = 27;
+            //   conta1.numConta = 64564;
+            //   conta1.saldo = 1552.30;
+            //   conta1.limite = 2000;
 
-    class Program {
+            //        Console.WriteLine("Nome do tirular: " + conta1.nomeTitular + "\n" +
+            //            "Numero da agencia: " + conta1.numAgencia + "\n" +
+            //            "Numero da conta: " + conta1.numConta + "\n" +
+            //            "Saldo disponivel: " + conta1.saldo + "\n" +
+            //            "Limite disponivel: " + conta1.limite + "\n");
+            //  Console.WriteLine(conta1.ToString());
+            //  Console.ReadLine();
 
-        static void Main(string[] args) {
-
-            /* Console.WriteLine("Olá Projeto de Desenvolvimento de Software Visual!");
-
-             double nota = 6.5;
-             Console.WriteLine(nota);
-
-             string nome = "Bruno";
-             Console.WriteLine(nome + " " + nota);
-
-             double soma = nota + 2;
-             if(soma > 7) {
-                 Console.WriteLine(soma);
-             }
-             else
-             {
-                 Console.WriteLine("soma menor que o esperado.");
-             }
-
-             Console.WriteLine("Digite seu nome: ");
-             string nomeNovo = Console.ReadLine();
-             Console.WriteLine("Digite sua idade: ");
-             int idade = Console.Read();
-
-             Console.WriteLine("O nome é: " + nomeNovo + " e tem " + idade + " anos de idade.");
-
-             */
+            Cliente c1 = new Cliente("Bruno", "6554678525");
+            c1.Email = "bruno@hotmail.com";
+            c1.Nascimento = new DateTime();
+            c1.Telefone = "43997848484";
+            Cliente c2 = new Cliente("Livia", "6554678525");
+            c2.Email = "livia@hotmail.com";
+            c2.Nascimento = new DateTime();
+            c2.Telefone = "43897848484";
+            ContaCorrente conta1 = new ContaCorrente(c1);
+            conta1.saldo = 1500.0;
 
 
-            // EXERCICIO 1
-            /*Console.Write("Digite o primeiro valor: ");
-            int num1 = int.Parse( Console.ReadLine());
-             Console.Write("Digite o segundo valor: ");
-             int num2 = int.Parse(Console.ReadLine());
-             Console.Write("Digite o terceiro valor: ");
-             int num3 = int.Parse(Console.ReadLine());
+            ContaCorrente conta2 = new ContaCorrente(c2);
+            conta2.saldo = 0.10;
 
-            if (num1 > num2 && num1 > num3)
+
+            Console.WriteLine("Antes da transf.: " + conta2.ToString());
+            if (conta1.Transferencia(conta2, 100.0))
             {
-                Console.WriteLine(num1);
+
+                Console.WriteLine("Transferido com sucesso!\n");
+                Console.WriteLine("Pos transf.: " + conta1.ToString());
+                Console.WriteLine("Pos transf (conta2): " + conta2.ToString());
+                Console.ReadLine();
             }
-            else if (num2 > num1 && num2 > num3)
-            {
-                Console.WriteLine(num2);
-            }
-            else if (num3 > num1 && num3 > num2) {
-                Console.WriteLine(num3);
-            }*/
+            else {
 
-            //EXERCICIO 2
-            /*Console.Write("Digite o primeiro valor: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Digite o segundo valor: ");
-            int num2 = int.Parse(Console.ReadLine());
-            Console.Write("Digite o terceiro valor: ");
-            int num3 = int.Parse(Console.ReadLine());
-
-            if (num1 < num2 && num1 < num3)
-            {
-                Console.WriteLine(num1);
+                Console.WriteLine("ERRO NA TREANSFERENCIA");
             }
-            else if (num2 < num1 && num2 < num3)
-            {
-                Console.WriteLine(num2);
-            }
-            else if (num3 < num1 && num3 < num2)
-            {
-                Console.WriteLine(num3);
-            }*/
 
-            Console.Write("Digite o primeiro valor: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Digite o segundo valor: ");
-            int num2 = int.Parse(Console.ReadLine());
-            Console.Write("Digite o terceiro valor: ");
-            int num3 = int.Parse(Console.ReadLine());
-
-            int[] ordem = new int[3] { num1, num2, num3 };
-            Array.Sort(ordem);
-            Array.Reverse(ordem);
-            foreach(int valor in ordem)
-            {
-                Console.WriteLine(valor + " ");
-            }
-            
-            
         }
     }
 }
