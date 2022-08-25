@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,14 +26,14 @@ namespace Aula3
             //  Console.WriteLine(conta1.ToString());
             //  Console.ReadLine();
 
-            Cliente c1 = new Cliente("Bruno", "6554678525");
+            Cliente c1 = new Cliente("Bruno");
             c1.Email = "bruno@hotmail.com";
-            c1.Nascimento = new DateTime();
             c1.Telefone = "43997848484";
-            Cliente c2 = new Cliente("Livia", "6554678525");
+
+            Cliente c2 = new Cliente("Livia");
             c2.Email = "livia@hotmail.com";
-            c2.Nascimento = new DateTime();
             c2.Telefone = "43897848484";
+
             ContaCorrente conta1 = new ContaCorrente(c1);
             conta1.saldo = 1500.0;
 
@@ -51,7 +51,8 @@ namespace Aula3
                 Console.WriteLine("Pos transf (conta2): " + conta2.ToString());
                 Console.ReadLine();
             }
-            else {
+            else
+            {
 
                 Console.WriteLine("ERRO NA TREANSFERENCIA");
             }
