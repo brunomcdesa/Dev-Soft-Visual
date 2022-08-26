@@ -1,17 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aula3
+namespace Aula4
 {
     class PessoaJuridica : Cliente
     {
         private string Cnpj { get; set; }
 
 
-        public PessoaJuridica(string nome, string cnpj) : base(nome) {
+        public PessoaJuridica(string nome, string cnpj) : base(nome)
+        {
             this.Cnpj = cnpj;
         }
     }
