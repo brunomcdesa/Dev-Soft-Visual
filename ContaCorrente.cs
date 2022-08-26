@@ -1,29 +1,31 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aula3
+namespace Aula4
 {
 
-        class ContaCorrente
-        {
-            //Atributos
-            public Cliente cliente;
-            public int numAgencia;
-            public int numConta;
-            public double saldo;
-            public double limite;
+    class ContaCorrente
+    {
+        //Atributos
+        public Cliente cliente;
+        public int numAgencia;
+        public int numConta;
+        public double saldo;
+        public double limite;
 
-            //Construtores
-            public ContaCorrente(Cliente cliente) {
-            this.cliente = cliente;        
-             }
+        //Construtores
+        public ContaCorrente(Cliente cliente)
+        {
+            this.cliente = cliente;
+        }
 
         //Transferencia
         // virtual => quem extende da conta pode sobreescrever o metodo 
-        public virtual bool Transferencia(ContaCorrente contaDestino, double valor) {
+        public virtual bool Transferencia(ContaCorrente contaDestino, double valor)
+        {
             if (this.saldo < valor)
             {
                 return false;
@@ -48,13 +50,12 @@ namespace Aula3
                         $"Saldo disponivel: {this.saldo}\n" +
                          $"Limite disponivel: {this.limite}\n";
 
-                /*
-                 $"Nome do titular: {this.nomeTitular}\n" +
-                $"Numero da agencia: {this.numAgencia}\n "
+            /*
+             $"Nome do titular: {this.nomeTitular}\n" +
+            $"Numero da agencia: {this.numAgencia}\n "
 
 
-                 */
-            }
+             */
         }
     }
-
+}
