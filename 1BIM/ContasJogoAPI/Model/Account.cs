@@ -6,14 +6,15 @@ namespace Contas_de_Jogo.Model
     {
         /*
          * JSon enviado
-         {
-            "Id": 1,
-            "Nickname": "Gelad0",
-            "Rank": "Gold 3",
-            "EntryDate": 12/06/2020
-         }
+                {
+                   "Id": 1,
+                   "Nickname": "Gelad0",
+                   "Rank": "Gold 3",
+                   "EntryDate": 12/06/2020
+                 }
          
          */
+        [Key]
         public int Id { get; set; }
 
         [Required (ErrorMessage = "Nickmname is required, please insert that")]
@@ -21,9 +22,9 @@ namespace Contas_de_Jogo.Model
 
         [Required (ErrorMessage = "Rank is required, please insert that")]
         public string Rank { get; set; }
-        public DateTime EntryDate { get; set; }
+        public string EntryDate { get; set; }
 
-        
+        public Account() { }
         //Construtor com parametros que possuem o required
         public Account(string nickname, string rank) {
             this.Nickname = nickname;
