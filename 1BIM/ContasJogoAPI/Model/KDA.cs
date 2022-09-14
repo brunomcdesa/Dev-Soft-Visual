@@ -15,6 +15,7 @@ namespace Contas_de_Jogo.Model
          }
          
          */
+        [Key]
         public int Id { get; set; }
         [Required (ErrorMessage = "Nickname is required, please insert that")]
         public string Nickname { get; set; }
@@ -25,6 +26,7 @@ namespace Contas_de_Jogo.Model
         [Required (ErrorMessage = "Amount of assists is required, pleas inssert that")]
         public int Assists { get; set; }
 
+        public KDA() { }
         public KDA(string nickname, int kill, int death, int assists) {
             this.Nickname = nickname;
             this.Kill = kill;
