@@ -5,27 +5,31 @@ namespace Contas_de_Jogo.Controllers
 {
 
     [ApiController]
-    [Route("controller")]
+    [Route("{controller}")]
     public class AccountController : ControllerBase
     {
         private static List<Account> accounts = new List<Account>();
 
         //Adicionar uma conta a lista de contas
         [HttpPost]
-        public void addAccount([FromBody] Account account) {
+        public void PostAccount([FromBody] Account account) {
             accounts.Add(account);
         }
 
+
+
         //Pegar a lista toda
         [HttpGet]
-        public IActionResult getAccount() {
+        public IActionResult GetAccount() {
 
             return Ok(accounts);
         }
 
+
+
         //Pegar um elemento da lista pelo Id
         [HttpGet("{id}")]
-        public IActionResult getAccountByID(int id)
+        public IActionResult GetAccountByID(int id)
         {
             Account account = accounts.FirstOrDefault (account => account.Id == id);
             if (account != null)
@@ -40,7 +44,7 @@ namespace Contas_de_Jogo.Controllers
 
         //Pegar um elemento da lista pelo nickname
         [HttpGet("{nickname}")]
-        public IActionResult getAccountByNickname(string nickname) {
+        public IActionResult GetAccountByNickname(string nickname) {
 
             Account account = accounts.FirstOrDefault (account => account.Nickname == nickname);
 
