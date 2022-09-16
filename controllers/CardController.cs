@@ -1,33 +1,29 @@
+using Aula7.Data;
+using Aula7.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Aula6.Controllers
+namespace Aula7.Controllers
 {
     [ApiController]
-    [Route("controller")]
-    public class CardController : ControllerBase
+    [Route("[controller]")]
+    public class CardController : Controller
     {
-        List<Card> cards = new List<Card>();
+        private CardContext _context;
 
-        [HttpPost]
-        public void AddCard([FromBody] Card card)
-        {
-            cards.Add(card);
+        public CardController(CardContext context) {
+            _context = context;     
         }
-
 
         [HttpGet]
-        public IActionResult getCards()
+        //Enumerable por conta de ser uma busca geral
+        public IEnumerable<Card> GetCards()
         {
-            return Ok(cards);
+            return _context.Cards; 
         }
-
-
-
-
-
+     
     }
 }
