@@ -1,20 +1,18 @@
-using Aula7.Data;
+using CartoesAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Aula7
+namespace CartoesAPI
 {
     public class Startup
     {
@@ -28,11 +26,9 @@ namespace Aula7
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Esse metodo é para realizar a conexao com o banco de dados
             services.AddDbContext<CardContext>(options => options.UseMySQL(
                 Configuration.GetConnectionString("CardConnection")));
             services.AddControllers();
-        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,11 +37,7 @@ namespace Aula7
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aula7 v1"));
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
